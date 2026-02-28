@@ -1,0 +1,23 @@
+# примеры API-запросов
+@baseUrl = http://localhost:8000/adv/
+
+GET {{baseUrl}}
+
+###
+
+POST {{baseUrl}}
+Content-Type: application/json
+
+
+{
+  "user": 1,
+  "text": "4 объявление. Тест."
+}
+
+###
+
+DELETE {{baseUrl}}/1/
+
+###
+
+
