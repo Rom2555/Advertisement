@@ -24,7 +24,6 @@ from demo.views import AdvertisementViewSet
 router = DefaultRouter()
 router.register(r'adv', AdvertisementViewSet)
 
-
 urlpatterns = [
-    path("admin/", admin.site.urls),
-] + router.urls
+                  path("admin/", admin.site.urls),
+              ] + router.urls
