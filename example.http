@@ -2,22 +2,27 @@
 @baseUrl = http://localhost:8000/adv/
 
 GET {{baseUrl}}
+Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
 
 ###
 
 POST {{baseUrl}}
 Content-Type: application/json
+Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
 
 
 {
-  "user": 1,
-  "text": "4 объявление. Тест."
+  "text": "объявление. Тест с токеном."
 }
 
 ###
 
-DELETE {{baseUrl}}/1/
-
+DELETE {{baseUrl}}/23/
+Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
 ###
+
+GET {{baseUrl}}/24/
+Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
+
 
 
