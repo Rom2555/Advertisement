@@ -2,6 +2,10 @@
 @baseUrl = http://localhost:8000/adv/
 
 GET {{baseUrl}}
+
+###
+
+GET {{baseUrl}}
 Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
 
 ###
