@@ -6,13 +6,13 @@ GET {{baseUrl}}
 ###
 
 GET {{baseUrl}}
-Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
+Authorization: Token 793cfd15235331e67ab091b9c4de979665d74be0
 
 ###
 
 POST {{baseUrl}}
 Content-Type: application/json
-Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
+Authorization: Token 793cfd15235331e67ab091b9c4de979665d74be0
 
 
 {
@@ -21,12 +21,32 @@ Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
 
 ###
 
-DELETE {{baseUrl}}/23/
-Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
+DELETE {{baseUrl}}/5/
+Authorization: Token 793cfd15235331e67ab091b9c4de979665d74be0
 ###
 
-GET {{baseUrl}}/24/
-Authorization: Token d0e4c3e1ff94300b1649384d26493ddd7c0df9e3
+GET {{baseUrl}}/8/
+Authorization: Token 793cfd15235331e67ab091b9c4de979665d74be0
 
+###
+
+PATCH {{baseUrl}}/9/
+Content-Type: application/json
+Authorization: Token 793cfd15235331e67ab091b9c4de979665d74be0
+
+{
+  "opened": false
+}
+
+###
+
+PUT {{baseUrl}}/9/
+Content-Type: application/json
+Authorization: Token 793cfd15235331e67ab091b9c4de979665d74be0
+
+{
+  "text": "объявление с токеном. замена текста и статуса ",
+  "opened": false
+}
 
 

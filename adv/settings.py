@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 
-from rest_framework.throttling import AnonRateThrottle
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,8 +25,6 @@ SECRET_KEY = "django-insecure-3$m!2vwef=gwxdmen#35^s5c@=bejx@x0wvlqp14=6scoa8&%9
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
-ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -73,6 +69,20 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '2/minute',
+        'user': '10/minute',
+    }
+}
+
 WSGI_APPLICATION = "adv.wsgi.application"
 
 # Database
@@ -89,13 +99,6 @@ DATABASES = {
     }
 }
 
-# CASH
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -133,20 +136,11 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES':
-        [
-            'rest_framework.authentication.TokenAuthentication',
-        ],
-    'DEFAULT_THROTTLE_CLASSES':
-        [
-            'rest_framework.throttling.UserRateThrottle',
-            'rest_framework.throttling.AnonRateThrottle',
-        ],
-    'DEFAULT_THROTTLE_RATES':
-        {
-            'user': '10/min',
-            'anon': '2/min',
-        }
-
+# Настройка кэша для троттлинга
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
 }
+
+
